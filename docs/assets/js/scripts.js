@@ -1,1 +1,0 @@
-window.addEventListener("DOMContentLoaded",(function(n){}));
