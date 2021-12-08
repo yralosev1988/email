@@ -1,0 +1,40 @@
+{
+  "scripts": {
+    "dev": "gulp",
+    "build": "gulp build",
+    "docs": "gulp docs"
+  },
+  "devDependencies": {
+    "autoprefixer": "^10.2.5",
+    "browser-sync": "^2.26.14",
+    "del": "^6.0.0",
+    "gulp": "^4.0.2",
+    "gulp-clean-css": "^4.3.0",
+    "gulp-concat": "^2.6.1",
+    "gulp-file-include": "^2.3.0",
+    "gulp-format-html": "^1.2.5",
+    "gulp-html-minimizer": "^2.0.1",
+    "gulp-html-static": "^1.0.3",
+    "gulp-imagemin": "^7.1.0",
+    "gulp-inject": "^5.0.5",
+    "gulp-nunjucks-render": "^2.2.3",
+    "gulp-plumber": "^1.2.1",
+    "gulp-postcss": "^9.0.1",
+    "gulp-purgecss": "^4.0.3",
+    "gulp-sass": "^5.0.0",
+    "gulp-terser": "^2.0.1",
+    "log-symbols": "^4.1.0",
+    "node-sass": "^6.0.1",
+    "tailwindcss-nested-groups": "^1.2.4"
+  },
+  "dependencies": {
+    "@tailwindcss/aspect-ratio": "^0.3.0",
+    "@tailwindcss/forms": "^0.3.4",
+    "@tailwindcss/line-clamp": "^0.2.2",
+    "@tailwindcss/typography": "^0.4.1",
+    "postcss": "^8.3.11",
+    "tailwindcss": "^2.2.19"
+  },
+  "license": "UNLICENSED",
+  "private": "true"
+}
