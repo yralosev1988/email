@@ -1,0 +1,11 @@
+{% extends "layouts/root.html" %}
+
+{% block rootContent %}
+  <p>Debentures: <b>$@debentures</b></p>
+  <p>CAC Sum: <b>$@cac_sum</b></p>
+  <p>Debts Sum: <b>$@debts_sum</b></p>
+  <p>Internal Accounts: <b>$@internal_accounts</b></p>
+  <p>Bill Refills: <b>$@bill_refills_sum</b></p>
+  <p>Clients Account Receivable: <b>$@clients_account_receivable</b></p>
+  <p>Σ TAT: <b>@turn_around_time</b></p>
+{% endblock %}

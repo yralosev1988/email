@@ -21,6 +21,7 @@
     "gulp-plumber": "^1.2.1",
     "gulp-postcss": "^9.0.1",
     "gulp-purgecss": "^4.0.3",
+    "gulp-replace": "^1.1.3",
     "gulp-sass": "^5.0.0",
     "gulp-terser": "^2.0.1",
     "log-symbols": "^4.1.0",

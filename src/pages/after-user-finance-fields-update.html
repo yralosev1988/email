@@ -1,0 +1,11 @@
+{% extends "layouts/root.html" %}
+
+{% block rootContent %}
+  <p>Finance data update in account: <a href="@user_url">@user_full_name</a></p>
+  <hr/>
+  <br/>
+  @values
+  <br/>
+  <hr/>
+  <br/>
+{% endblock %}

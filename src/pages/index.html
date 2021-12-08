@@ -1,21 +1,6 @@
-<!DOCTYPE html>
-<html class="h-full">
-<head>
-  {# <base href=""> #}
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <!-- inject:css -->
-  <!-- endinject -->
-  <link rel="preconnect" href="https://fonts.gstatic.com">
-  <title>{{ pageTitle }} | Archivizer</title>
-  
-  <!-- inject:js -->
-  <!-- endinject -->
-</head>
-<body>
-<div id="root">
-  
-</div>
+{% extends "layouts/root.html" %}
 
-</body>
-</html>
+{% block rootContent %}
+  <p>Вітаю, <strong> @manager_full_name! </strong> </p>
+  <p> Користувачем <strong> @user_id @user_full_name </strong>  відправлено запит на видалення акаунту </p>
+{% endblock %}

@@ -1,0 +1,24 @@
+{% extends "layouts/root.html" %}
+
+{% block rootContent %}
+  <p>
+    User <i>@user_name</i> (id. @user_id) has changed the user permission
+    <i>@permission_action</i> (id. @permission_id)
+  </p>
+  <br />
+  <p>
+    Permission's data before change:
+    <br />
+    <i>@before_change</i>
+  </p>
+  <br />
+  <p>
+    Permission's data after change:
+    <br />
+    <i>@after_change</i>
+  </p>
+  <br />
+  <p>
+    The time of change: <i>@created_at</i>
+  </p>
+{% endblock %}

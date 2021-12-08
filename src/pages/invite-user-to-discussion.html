@@ -1,0 +1,7 @@
+{% extends "layouts/root.html" %}
+
+{% block rootContent %}
+  <p>@current_user_name invited you to the task <a href="@discussion_url">@discussion_name</a>.</p>
+  <br/>
+  <p><a href="@accept_invite_url">Accept invitation</a></p>
+{% endblock %}

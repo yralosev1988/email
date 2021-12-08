@@ -1,0 +1,10 @@
+{% extends "layouts/root.html" %}
+
+{% block rootContent %}
+  <p>New task <strong>@discussion_name</strong> in the project <strong>@task_name</strong></p>
+  <p>Creator: <strong>@discussion_user_name</strong></p>
+  <p>Task name: <a href="@discussion_url">@discussion_name</a></p>
+  <p>Description: @discussion_description</p>
+  <br/>
+  <p>The task is waiting for technical assignment checking. To be answered within 24 h.</p>
+{% endblock %}

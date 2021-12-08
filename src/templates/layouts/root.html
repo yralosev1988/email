@@ -1,0 +1,241 @@
+﻿<!DOCTYPE html>
+<html class="h-full">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+  <meta name="color-scheme" content="light dark">
+  <meta name="supported-color-schemes" content="light dark">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Archivizer's email</title>
+  <!-- inject:css -->
+  <!-- endinject -->
+  <style>
+      /* -------------------------------------
+          GLOBAL
+          A very basic CSS reset
+      ------------------------------------- */
+      * {
+          margin: 0;
+          padding: 0;
+          font-family: Rubik, ui-sans-serif, system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, "Noto Sans", sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol", "Noto Color Emoji";
+          box-sizing: border-box;
+      }
+
+      img {
+          max-width: 100%;
+      }
+
+      body {
+          -webkit-font-smoothing: antialiased;
+          -webkit-text-size-adjust: none;
+          width: 100% !important;
+          height: 100%;
+          line-height: 1.6;
+          font-size: 16px;
+      }
+
+      /* Let's make sure all tables have defaults */
+      table td {
+          vertical-align: top;
+      }
+
+
+      /* -------------------------------------
+          TYPOGRAPHY
+      ------------------------------------- */
+      h1,
+      h2,
+      h3 {
+          font-family: "Helvetica Neue", Helvetica, Arial, "Lucida Grande", sans-serif;
+          color: #000;
+          margin: 40px 0 0;
+          line-height: 1.2;
+          font-weight: 400;
+      }
+
+      h1 {
+          font-size: 32px;
+          font-weight: 500;
+      }
+
+      h2 {
+          font-size: 24px;
+      }
+
+      h3 {
+          font-size: 18px;
+      }
+
+      h4 {
+          font-size: 14px;
+          font-weight: 600;
+      }
+
+      p,
+      ul,
+      ol {
+          margin-bottom: 10px;
+          font-weight: normal;
+      }
+
+      p li,
+      ul li,
+      ol li {
+          margin-left: 5px;
+          list-style-position: inside;
+      }
+
+      /* -------------------------------------
+          LINKS & BUTTONS
+      ------------------------------------- */
+      a {
+          color: #3b82f6;
+          text-decoration: underline;
+      }
+
+      /* -------------------------------------
+          UTILITY CLASSES
+      ------------------------------------- */
+      .text-center {
+          text-align: center;
+      }
+
+      .text-gray-500 {
+          color: #71717a;
+      }
+
+      .block {
+          display: block;
+      }
+
+      .w-full {
+          width: 100% !important;
+      }
+
+      .mx-auto {
+          margin-left: auto;
+          margin-right: auto;
+      }
+
+      .p-3 {
+          padding: 0.75rem;
+      }
+
+      .p-6 {
+          padding: 1.5rem;
+      }
+
+      .inline-block {
+          display: inline-block;
+      }
+
+      .h-16 {
+          height: 4rem;
+      }
+
+      .w-16 {
+          width: 4rem;
+      }
+
+      .rounded-lg {
+          border-radius: 0.5rem;
+      }
+
+      .text-xs {
+          font-size: 0.8125rem;
+          line-height: 1.125rem;
+      }
+
+      .text-sm {
+          font-size: 0.875rem;
+          line-height: 1.25rem;
+      }
+
+      .text-2xl {
+          font-size: 1.5rem;
+          line-height: 2rem;
+      }
+
+      .font-bold {
+          font-weight: 700;
+      }
+
+      .tracking-tight {
+          letter-spacing: -0.025em;
+      }
+
+      .leading-10 {
+          line-height: 2.5rem;
+      }
+
+      .align-top {
+          vertical-align: top;
+      }
+
+      /* -------------------------------------
+          RESPONSIVE AND MOBILE FRIENDLY STYLES
+      ------------------------------------- */
+      @media only screen and (max-width: 640px) {
+
+          h1,
+          h2,
+          h3,
+          h4 {
+              font-weight: 600 !important;
+              margin: 20px 0 5px !important;
+          }
+
+          h1 {
+              font-size: 22px !important;
+          }
+
+          h2 {
+              font-size: 18px !important;
+          }
+
+          h3 {
+              font-size: 16px !important;
+          }
+
+      }
+  </style>
+  
+</head>
+<body>
+<div id="root">
+  <table class="mx-auto">
+    <tbody>
+    <tr>
+      <td width="600">
+        <div class="p-6 text-center">
+          <img
+            src="/archivizer-logo-color-solid-128px.png"
+            alt="AV" class="inline-block h-16 w-16 rounded-lg">
+          <div class="p-3 inline-block text-2xl font-bold tracking-tight leading-10 align-top">Archivizer</div>
+        </div>
+      </td>
+    </tr>
+    <tr>
+      <td width="600">
+        <div class="p-6 text-sm">
+          {% block rootContent %} {% endblock %}
+{#          <%= yield %>     #}
+        </div>
+      </td>
+    </tr>
+    <tr>
+      <td width="600">
+        <div class="p-6 text-center">
+            <span class="text-gray-500 text-xs">
+{#              &copy; <%= Date.today.strftime('%Y') %>. <%= I18n.t('expressions.full_site_name') %>  #}
+            </span>
+        </div>
+      </td>
+    </tr>
+    </tbody>
+  </table>
+  
+</div>
+
+</body>
+</html>

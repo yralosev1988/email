@@ -1,0 +1,7 @@
+{% extends "layouts/root.html" %}
+
+{% block rootContent %}
+  <p>@user_name requests the access to your profile for <a href="@follower_user_url">@follower_user_name</a>.</p>
+  <br/>
+  <p><a href="@accept_url">Provide access</a></p>
+{% endblock %}

@@ -21,6 +21,11 @@ const urlPrefixer = require('gulp-html-static') // For prefixing urls for github
 
 const logSymbols = require('log-symbols') // For Symbolic Console logs
 
+const gulp = require('gulp')
+const replace = require('gulp-replace')
+const fs = require('fs')
+
+
 //Load Previews on Browser on dev
 function livePreview(done) {
   browserSync.init({
@@ -56,7 +61,12 @@ function injectSources(payload = {}) {
     },
   })
 }
-
+function getCSSFilename(linkTag) {
+  var hrefValue = /href\=\"([A-Za-z0-9/._]*)\"/g;
+  var cssFilename = linkTag.match(hrefValue);
+  cssFilename = cssFilename[0].replace("href=\"", "").replace("\"", "");
+  return cssFilename;
+}
 //Development Tasks
 function devHTML() {
   const sourcesToInject = src(
@@ -75,6 +85,10 @@ function devHTML() {
         sources: sourcesToInject,
         basePath: options.paths.dev.base,
       })
+        .pipe(replace(/<link rel="stylesheet" href="[^"]*"*>/g, function(linkTag) {
+          var style = fs.readFileSync(`.${getCSSFilename(linkTag)}`, 'utf8');
+          return '<style>\n' + style + '\n</style>';
+        }))
     )
     .pipe(
       fileinclude({

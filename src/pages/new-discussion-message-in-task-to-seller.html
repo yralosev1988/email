@@ -1,0 +1,15 @@
+{% extends "layouts/root.html" %}
+
+{% block rootContent %}
+  <p>
+    <strong>@author_name</strong> left a <a href="@task_url/messages">message</a>
+    in the @task_done project <a href="@task_url">@task_name</a>:
+  </p>
+  <hr/>
+  <br/>
+  @body
+  <br/>
+  <hr/>
+  <br/>
+  <p class="text-gray-400">You can answer to this message from your e-mail box</p>
+{% endblock %}

@@ -1,0 +1,9 @@
+{% extends "layouts/root.html" %}
+
+{% block rootContent %}
+  <p> A new user has been registered:</p>
+  <p>Name: <strong>@user_full_name</strong></p>
+  <p>E-mail: <strong>@user_email</strong></p>
+  <p>IP: <strong>@user_ip</strong></p>
+  <p> Referer: <strong>@user_referer</strong> @provider</p>
+{% endblock %}
