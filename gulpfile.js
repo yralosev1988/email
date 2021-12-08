@@ -61,12 +61,24 @@ function injectSources(payload = {}) {
     },
   })
 }
+
 function getCSSFilename(linkTag) {
   var hrefValue = /href\=\"([A-Za-z0-9/._]*)\"/g;
   var cssFilename = linkTag.match(hrefValue);
   cssFilename = cssFilename[0].replace("href=\"", "").replace("\"", "");
   return cssFilename;
 }
+
+//Development Task replace link to style
+function devReplaceLinkToStyle() {
+    return src(`${options.paths.dev.base}/**/*.html`)
+        .pipe(replace(/<link rel="stylesheet" href="[^"]*"*>/g, function(linkTag) {
+            var style = fs.readFileSync(`.dev/${getCSSFilename(linkTag)}`, 'utf8');
+            return '<style>\n' + style + '\n</style>';
+        }))
+        .pipe(dest(options.paths.dev.base))
+}
+
 //Development Tasks
 function devHTML() {
   const sourcesToInject = src(
@@ -85,10 +97,6 @@ function devHTML() {
         sources: sourcesToInject,
         basePath: options.paths.dev.base,
       })
-        .pipe(replace(/<link rel="stylesheet" href="[^"]*"*>/g, function(linkTag) {
-          var style = fs.readFileSync(`.${getCSSFilename(linkTag)}`, 'utf8');
-          return '<style>\n' + style + '\n</style>';
-        }))
     )
     .pipe(
       fileinclude({
@@ -96,6 +104,7 @@ function devHTML() {
         basepath: options.paths.src.templates,
       })
     )
+      
     .pipe(
       htmlMinimizer({
         collapseWhitespace: true,
@@ -136,7 +145,7 @@ function watchFiles() {
       `${options.paths.src.templates}/**/*.html`,
       `${options.paths.src.templates}/**/*.njk`,
     ],
-    series(devHTML, previewReload)
+    series(devHTML, devReplaceLinkToStyle, previewReload)
   )
   watch(
     [options.config.tailwindjs, `${options.paths.src.css}/**/*`],
@@ -198,6 +207,25 @@ function prodHTML(build) {
   }
 }
 
+//Prod(build) Task replace link to style
+function prodReplaceLinkToStyle() {
+    return src(`${options.paths.build.base}/**/*.html`)
+        .pipe(replace(/<link rel="stylesheet" href="[^"]*"*>/g, function(linkTag) {
+            var style = fs.readFileSync(`build/${getCSSFilename(linkTag)}`, 'utf8');
+            return '<style>\n' + style + '\n</style>';
+        }))
+        .pipe(dest(options.paths.build.base))
+}
+
+//Docs(docs) Task replace link to style
+function docsReplaceLinkToStyle() {
+    return src(`${options.paths.docs.base}/**/*.html`)
+        .pipe(replace(/<link rel="stylesheet" href="[^"]*"*>/g, function(linkTag) {
+            var style = fs.readFileSync(`docs/${getCSSFilename(linkTag)}`, 'utf8');
+            return '<style>\n' + style + '\n</style>';
+        }))
+        .pipe(dest(options.paths.docs.base))
+}
 function prodStyles(build) {
   return function callbackProdStyles() {
     return src(`${options.paths.src.css}/main.scss`)
@@ -252,6 +280,7 @@ exports.default = series(
   devClean, // Clean Dist Folder
   parallel(devStyles, devScripts), //Run All tasks in parallel
   devHTML,
+  devReplaceLinkToStyle, //Goes only after link injected 
   livePreview, // Live Preview Build
   watchFiles // Watch for Live Changes
 )
@@ -260,6 +289,7 @@ exports.build = series(
   prodClean('build'), // Clean Build Folder
   parallel(prodScripts('build'), prodStyles('build')), //Run All tasks in parallel
   prodHTML('build'),
+  prodReplaceLinkToStyle, //Goes only after link injected
   buildFinish('build')
 )
 
@@ -267,5 +297,6 @@ exports.docs = series(
   prodClean('docs'), // Clean Build Folder
   parallel(prodScripts('docs'), prodStyles('docs')), //Run All tasks in parallel
   prodHTML('docs'),
+  docsReplaceLinkToStyle, //Goes only after link injected 
   buildFinish('docs')
 )
