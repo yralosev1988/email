@@ -1,0 +1,15 @@
+﻿.discussion-results {
+   @apply flex flex-wrap;
+
+  &-item {
+    @apply w-1/3 h-20 p-0.5 relative rounded-md overflow-hidden aspect-w-1 aspect-h-1;
+  }
+  
+  &-link {
+    @apply absolute inset-0;
+  }
+  
+  &-image {
+  @apply h-full w-full p-0.5 object-cover;
+  }
+}

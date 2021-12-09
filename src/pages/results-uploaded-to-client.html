@@ -1,8 +1,10 @@
 {% extends "layouts/root.html" %}
 
+{% from "components/results-grid.html" import resultsGrid %}
+
 {% block rootContent %}
   <p>We have great news, your task <a href="@discussion_url">@discussion_name</a> in project <a href="@task_url">@task_name</a> is ready.</p>
   <p>Please follow <a href="@discussion_results_url">this link</a> to download result.</p>
-  <div class="discussion-results"></div>
-  @discussion_results_grid
+  {#  @discussion_results_grid  #}
+  {{ resultsGrid() }}
 {% endblock %}
