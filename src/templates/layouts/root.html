@@ -1,15 +1,12 @@
-﻿<!DOCTYPE html>
-<html class="h-full">
+﻿<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<html>
 <head>
-  <meta charset="UTF-8">
-  <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
-  <meta name="color-scheme" content="light dark">
-  <meta name="supported-color-schemes" content="light dark">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <title>Archivizer's email</title>
-  <!-- inject:css -->
-  <!-- endinject -->
-  <style>
+  
+  <style type="text/css">
       /* -------------------------------------
           GLOBAL
           A very basic CSS reset
@@ -198,44 +195,48 @@
           }
 
       }
+      
   </style>
-  
+
+  <!-- inject:css -->
+  <!-- endinject -->
 </head>
-<body>
-<div id="root">
-  <table class="mx-auto">
+
+<body style="margin:0; padding:0;">
+  <table width="100%" border="0" cellpadding="0" cellspacing="0" bgcolor="#F2F2F2">
     <tbody>
     <tr>
-      <td width="600">
-        <div class="p-6 text-center">
-          <img
-            src="/archivizer-logo-color-solid-128px.png"
-            alt="AV" class="inline-block h-16 w-16 rounded-lg">
-          <div class="p-3 inline-block text-2xl font-bold tracking-tight leading-10 align-top">Archivizer</div>
-        </div>
-      </td>
-    </tr>
-    <tr>
-      <td width="600">
-        <div class="p-6 text-sm">
-          {% block rootContent %} {% endblock %}
-{#          <%= yield %>     #}
-        </div>
-      </td>
-    </tr>
-    <tr>
-      <td width="600">
-        <div class="p-6 text-center">
-            <span class="text-gray-500 text-xs">
-{#              &copy; <%= Date.today.strftime('%Y') %>. <%= I18n.t('expressions.full_site_name') %>  #}
-            </span>
-        </div>
+      <td align="center">
+        <table width="600" border="0" cellpadding="0" cellspacing="0" bgcolor="#F2F2F2" style="width:100%;max-width:600px;border:0;margin:0px;padding:0px">
+          <tbody>
+            <tr>
+              <td width="600" align="center" valign="top">
+                <div class="p-6 text-center">
+                  <img
+                    src="/archivizer-logo-color-solid-128px.png"
+                    alt="AV" class="inline-block h-16 w-16 rounded-lg">
+                  <div class="p-3 inline-block text-2xl font-bold tracking-tight leading-10 align-top">Archivizer</div>
+                </div>
+              </td>
+            </tr>
+            <tr>
+              <td width="600" align="center" valign="top">
+                {% block rootContent %} {% endblock %}
+                {#          <%= yield %>     #}
+              </td>
+            </tr>
+            <tr>
+              <td width="600" align="center" valign="top" style="color:#94b8a3;font-size:12px;line-height:16px;">
+                <span class="text-gray-500 text-xs">
+{#                  &copy; <%= Date.today.strftime('%Y') %>. <%= I18n.t('expressions.full_site_name') %>#}
+                </span>                
+              </td>
+            </tr>
+          </tbody>
+        </table>
       </td>
     </tr>
     </tbody>
   </table>
-  
-</div>
-
 </body>
 </html>
