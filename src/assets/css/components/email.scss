@@ -1,22 +1,12 @@
 ﻿.discussion-results {
-  &-item {
-    width: 180px;
-    max-height: 180px;
-    border-radius: 5px;
-    overflow: hidden;
-    margin: 5px;
-  }
-  
-  &-link {
-    width: 100%;
-    height: 100%;
-  }
-  
   &-image {
-    object-fit: cover;
-    width: 100%;
-    height: auto;
-    margin: 0;
-    display: block;
+    max-width:200px;
+    width:auto;
+    max-height:200px;
+    height:auto;
+    display:block;
+    margin:0 auto;
+    border-radius: 10px;
+    padding: 2px;
   }
 }

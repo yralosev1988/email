@@ -1,16 +1,17 @@
 ﻿{% macro resultsGrid(data) %}
   <table border="0" cellpadding="0" cellspacing="0">
     <tr>
-      {% for i in range(9) %}
+      {% for i in range(8) %}
       <td  align="center" valign="middle">
         <!--[if mso]>
         <table border="0" cellpadding="10px" cellspacing="0" align="center" valign="middle" >
           <tr>
             <td>
         <![endif]-->
-              <a href="#" class="discussion-results-link">
-                <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSmMuhryXBoXpxRkEoW8AEtwUmI0znhLjF4Aw&usqp=CAU" alt="#" class="discussion-results-image" width="200" style="max-width:200px;width:auto;max-height:200px;height:auto;display:block;margin:0 auto;border-radius: 15px;padding: 5px;">
-              </a>
+          {#  @discussion_results_grid  #}
+          <a href="#" class="discussion-results-link">
+            <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSmMuhryXBoXpxRkEoW8AEtwUmI0znhLjF4Aw&usqp=CAU" alt="#" width="200" class="discussion-results-image">
+          </a>
         <!--[if mso]>
             </td>
             </tr>
